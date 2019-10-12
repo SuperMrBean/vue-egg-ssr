@@ -16,7 +16,7 @@ module.exports = () => {
       ctx.body = {
         code: -1,
         message: error,
-        detail: status === 422 ? err.errors : undefined, // 参数校验未通过
+        // detail: status === 422 ? err.errors : '', // 参数校验未通过
       }
       ctx.status = status;
     }

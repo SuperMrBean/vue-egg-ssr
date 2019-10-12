@@ -5,15 +5,39 @@ const Controller = require('egg').Controller;
 // 定义创建用户接口的请求参数规则
 const registerRule = {
   password:'string' || 'number',
-  name:'string' || '',
-  telephone:'number' || 'number',
-  email:'string'
+  name:'string' || 'number',
+  telephone:'string' || 'number',
+  email:'string' || 'number'
 };
 class User extends Controller {
   async register(){
     const { ctx } = this
-    console.log(typeof ctx.request.body.telephone)
-    ctx.validate(registerRule, ctx.request.body);
+    const {name,telephone,password,email} = ctx.params
+    if(name && telephone && password && email){
+      const data = await ctx.service.user.findUser(name)
+      if(data){
+        ctx.response.status = 403
+        throw new Error('用户名已存在')
+      }
+    }else{
+      ctx.response.status = 422
+      throw new Error('缺少必要参数')
+    }
+    await ctx.service.user.addUser({name,telephone,password,email,password:ctx.helper.md5(password)});
+    ctx.body = {
+      code:200,
+      message:'创建用户成功',
+      data:null
+    }
+  }
+
+  async login(){
+    const { ctx } = this
+    // ctx.session = {a:123}
+    ctx.body = {
+      code:200,
+      data:ctx.session
+    }
   }
 
   async info() {
