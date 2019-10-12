@@ -45,7 +45,7 @@ module.exports = appInfo => {
       // 密码
       password: '!Aa123949007',
       // 数据库名
-      database: 'blog',
+      database: 'web',
     },
     // 是否加载到 app 上，默认开启
     app: true,
