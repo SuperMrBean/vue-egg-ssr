@@ -17,8 +17,13 @@ module.exports = appInfo => {
 
   // add your middleware config here
   config.middleware = [
-    'params'
+    'params',
+    'errorHandler'
   ];
+
+  config.errorHandler = {
+    match:'/api'
+  }
 
   config.security = {
     csrf: {

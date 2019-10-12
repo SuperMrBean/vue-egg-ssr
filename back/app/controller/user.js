@@ -4,19 +4,16 @@ const Controller = require('egg').Controller;
 
 // 定义创建用户接口的请求参数规则
 const registerRule = {
-  password:'string',
-  name:{type:'string',message:'用户名有误'},
-  telephone:'number',
+  password:'string' || 'number',
+  name:'string' || '',
+  telephone:'number' || 'number',
   email:'string'
 };
 class User extends Controller {
   async register(){
     const { ctx } = this
-    try {
-      ctx.validate(registerRule, ctx.request.body);
-    } catch (error) {
-      ctx.body = error
-    }
+    console.log(typeof ctx.request.body.telephone)
+    ctx.validate(registerRule, ctx.request.body);
   }
 
   async info() {
