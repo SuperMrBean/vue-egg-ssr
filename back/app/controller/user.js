@@ -33,7 +33,7 @@ class User extends Controller {
 
   async login(){
     const { ctx } = this
-    // ctx.session = {a:123}
+    ctx.session = {a:123}
     ctx.body = {
       code:200,
       data:ctx.session
@@ -42,8 +42,8 @@ class User extends Controller {
 
   async info() {
     const { ctx } = this;
-    const userInfo = await ctx.service.user.addName('wjw');
-    ctx.body = userInfo;
+    // const userInfo = await ctx.service.user.addName('wjw');
+    ctx.body = ctx.session;
   }
 }
 
