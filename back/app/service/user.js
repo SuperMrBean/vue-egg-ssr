@@ -6,8 +6,12 @@ class User extends Service {
     const result = await this.app.mysql.insert('user', params);
     return result;
   }  
-  async findUser(name) {
-    const result = await this.app.mysql.get('user', { name });
+  async findUserByName(name){
+    const result = await this.app.mysql.get('user', {name});
+    return result;
+  }
+  async findUser(params) {
+    const result = await this.app.mysql.get('user', params);
     return result;
   }
 }

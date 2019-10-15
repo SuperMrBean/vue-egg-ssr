@@ -8,8 +8,7 @@ module.exports = app => {
   router.get('/', controller.home.index);
   router.post('/', controller.home.index);
   // user 用户相关
-  router.get('/api/user/info', controller.user.info);
-  router.post('/api/user/info', controller.user.info);
-  router.post('/api/user/register', controller.user.register);
-  router.post('/api/user/login', controller.user.login);
+  router.post('/api/user/info', controller.user.info); // 获取用户信息
+  router.post('/api/user/register', controller.user.register); // 用户注册
+  router.post('/api/user/login', controller.user.login); // 用户登录
 };

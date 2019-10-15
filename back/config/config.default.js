@@ -18,12 +18,18 @@ module.exports = appInfo => {
   // add your middleware config here
   config.middleware = [
     'params',
-    'errorHandler'
+    'errorHandler',
+    'auth'
   ];
 
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
     match:'/api'
+  }
+
+  // session验证白名单
+  config.auth = {
+    ignore:['/api/user/login','/api/user/register']
   }
 
   config.security = {
@@ -61,8 +67,8 @@ module.exports = appInfo => {
 
   // session配置
   config.session = {
-    key: 'EGG_SESS',
-    maxAge: 24 * 3600 * 1000, // 1 天
+    key: 'TOKEN',
+    maxAge: 0.1 * 3600 * 1000, // 6分钟
     httpOnly: true,
     encrypt: true,
   };

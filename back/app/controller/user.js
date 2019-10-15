@@ -14,7 +14,7 @@ class User extends Controller {
     const { ctx } = this
     const {name,telephone,password,email} = ctx.params
     if(name && telephone && password && email){
-      const data = await ctx.service.user.findUser(name)
+      const data = await ctx.service.user.findUserByName(name)
       if(data){
         ctx.response.status = 403
         throw new Error('用户名已存在')
@@ -33,17 +33,42 @@ class User extends Controller {
 
   async login(){
     const { ctx } = this
-    ctx.session = {a:123}
-    ctx.body = {
-      code:200,
-      data:ctx.session
+    const { name, password } = ctx.params
+    if(name && password){
+      const data = await ctx.service.user.findUser({ name, password:ctx.helper.md5(password) })
+      if(data){
+        ctx.session = {name:data.name}
+        ctx.body = {
+          code:200,
+          message:'登录成功',
+          data:null
+        }
+      }else{
+        ctx.response.status = 403
+        throw new Error('账号或密码错误')
+      }
+    }else{
+      ctx.response.status = 422
+      throw new Error('缺少必要参数')
     }
   }
 
   async info() {
     const { ctx } = this;
-    // const userInfo = await ctx.service.user.addName('wjw');
-    ctx.body = ctx.session;
+    const {id,name,telephone,email,role,create_time,update_time} = await ctx.service.user.findUserByName(ctx.session.name)
+    ctx.body = {
+      code:200,
+      message:'查询成功',
+      data:{
+        id,
+        name,
+        telephone,
+        email,
+        role,
+        create_time,
+        update_time
+      }
+    }
   }
 }
 
