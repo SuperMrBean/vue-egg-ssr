@@ -24,25 +24,25 @@ module.exports = appInfo => {
 
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = {
-    match:'/api'
-  }
+    match: '/api'
+  };
 
   // session验证白名单
   config.auth = {
-    ignore:['/api/user/login','/api/user/register']
-  }
+    ignore: [ '/api/user/login', '/api/user/register' ]
+  };
 
   config.security = {
     csrf: {
       enable: false,
-      ignoreJSON: true,
+      ignoreJSON: true
     },
-    domainWhiteList: [ 'http://localhost:7001' ], // 配置白名单
+    domainWhiteList: [ 'http://localhost:7001' ] // 配置白名单
   };
 
   config.cors = {
     // origin: '*',//允许所有跨域访问，注释掉则允许上面 白名单 访问
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
 
   config.mysql = {
@@ -57,12 +57,12 @@ module.exports = appInfo => {
       // 密码
       password: '!Aa123949007',
       // 数据库名
-      database: 'web',
+      database: 'web'
     },
     // 是否加载到 app 上，默认开启
     app: true,
     // 是否加载到 agent 上，默认关闭
-    agent: false,
+    agent: false
   };
 
   // session配置
@@ -70,7 +70,7 @@ module.exports = appInfo => {
     key: 'TOKEN',
     maxAge: 0.1 * 3600 * 1000, // 6分钟
     httpOnly: true,
-    encrypt: true,
+    encrypt: true
   };
   // add your user config here
   const userConfig = {
@@ -79,6 +79,6 @@ module.exports = appInfo => {
 
   return {
     ...config,
-    ...userConfig,
+    ...userConfig
   };
 };

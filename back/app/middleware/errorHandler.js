@@ -1,3 +1,4 @@
+'use strict';
 module.exports = () => {
   return async function errorHandler(ctx, next) {
     try {
@@ -15,9 +16,9 @@ module.exports = () => {
       // 错误响应对象
       ctx.body = {
         code: -1,
-        message: error,
+        message: error
         // detail: status === 422 ? err.errors : '', // 参数校验未通过
-      }
+      };
       ctx.status = status;
     }
   };
