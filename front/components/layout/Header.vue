@@ -44,11 +44,11 @@ export default {}
         font-size: 14px;
         color: #fff;
         height: 64px;
-        margin: 0 20px;
+        padding: 0 20px;
         transition: all 0.5s ease;
-        &:after {
+        position: relative;
+        &::after {
           background: #fff;
-          display: block;
           opacity: 0;
           position: absolute;
           content: '';
@@ -59,6 +59,10 @@ export default {}
           height: 2px;
           transform: scaleX(0);
           transition: all 0.4s ease;
+        }
+        &:hover::after {
+          opacity: 1;
+          transform: scaleX(1);
         }
       }
     }
