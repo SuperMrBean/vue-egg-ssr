@@ -20,9 +20,6 @@ export default {}
 .container {
   position: fixed;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   height: 64px;
   width: 100%;
   transition: all 0.5s ease;

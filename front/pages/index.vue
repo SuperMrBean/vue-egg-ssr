@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less" scoped>
 .container {
   min-height: 100vh;
   display: flex;
