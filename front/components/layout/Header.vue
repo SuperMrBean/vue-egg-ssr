@@ -2,13 +2,11 @@
   <div class="container">
     <div class="nav">
       <div class="list">
-        <div class="item">首页</div>
-        <div class="item">产品中心</div>
-        <div class="item">区块链</div>
-        <div class="item">广告服务</div>
-        <div class="item">开放能力</div>
+        <div class="item">业务范围</div>
+        <div class="item">项目案例</div>
         <div class="item">关于我们</div>
-        <div class="item">投资者关系</div>
+        <div class="item">咨询中心</div>
+        <div class="item">联系我们</div>
       </div>
     </div>
   </div>
