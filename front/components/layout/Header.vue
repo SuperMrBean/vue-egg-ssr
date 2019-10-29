@@ -2,11 +2,24 @@
   <div class="container">
     <div class="nav">
       <div class="list">
-        <div class="item">业务范围</div>
-        <div class="item">项目案例</div>
+        <div class="item">首页</div>
         <div class="item">关于我们</div>
-        <div class="item">咨询中心</div>
+        <div class="item">特色</div>
+        <div class="item">课程</div>
+        <div class="item">员工</div>
+      </div>
+      <div class="list_logo">
+        <div class="item">
+          <img 
+            class="logo" 
+            src="@/assets/image/logo.png">
+        </div>
+      </div>
+      <div class="list">
+        <div class="item">社区</div>
+        <div class="item">招生部</div>
         <div class="item">联系我们</div>
+        <div class="item">新闻</div>
       </div>
     </div>
   </div>
@@ -16,34 +29,38 @@ export default {}
 </script>
 <style lang="less" scoped>
 .container {
-  position: fixed;
-  top: 0;
-  height: 64px;
+  position: absolute;
+  top: 90px;
+  height: 50px;
   width: 100%;
-  transition: all 0.5s ease;
-  &:hover {
-    background: rgba(0, 0, 0, 0.8);
-  }
   .nav {
-    width: 100%;
-    height: 64px;
+    margin: 0 auto;
+    width: 90%;
+    height: 50px;
     display: flex;
     justify-content: center;
+    background-image: url(~assets/image/nav_back.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
     .list {
+      flex: 1;
       font-size: 0;
       display: flex;
-      justify-content: center;
+      justify-content: space-around;
       align-items: center;
       .item {
         display: flex;
-        justify-content: center;
         align-items: center;
-        font-size: 14px;
-        color: #fff;
-        height: 64px;
+        font-size: 18px;
+        color: #dcbb71;
+        height: 50px;
         padding: 0 20px;
         transition: all 0.5s ease;
         position: relative;
+        &:hover {
+          color: #fff;
+        }
         &::after {
           background: #fff;
           opacity: 0;
@@ -61,6 +78,17 @@ export default {}
           opacity: 1;
           transform: scaleX(1);
         }
+      }
+    }
+    .list_logo {
+      position: relative;
+      top: 10px;
+      flex: 0.2;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      .logo {
+        width: 80%;
       }
     }
   }

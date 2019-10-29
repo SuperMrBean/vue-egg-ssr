@@ -17,7 +17,8 @@
     "@nuxtjs/style-resources": "^1.0.0",
     "cross-env": "^5.2.0",
     "koa": "^2.5.2",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.0.0",
+    "postcss-pxtorem": "^4.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
