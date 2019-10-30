@@ -1,5 +1,5 @@
 <template>
-  <div class="a">
+  <div class="container">
     <Swiper/>
   </div>
 </template>
@@ -14,7 +14,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.a {
+.container {
+  padding-top: 86px;
   font-size: 16px;
 }
 </style>

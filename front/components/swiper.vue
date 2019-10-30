@@ -7,7 +7,9 @@
         v-for="(banner,index) in banners" 
         :key="index"
         class="swiper-slide">
-        <img :src="banner">
+        <img 
+          :src="banner" 
+          class="pic">
       </div>
     </div>
     <div class="swiper-pagination"/>
@@ -19,17 +21,19 @@ export default {
   data() {
     return {
       banners: [
-        'http://pzertgfup.bkt.clouddn.com/banner1.png',
-        'http://pzertgfup.bkt.clouddn.com/banner2.png',
-        'http://pzertgfup.bkt.clouddn.com/banner3.png',
-        'http://pzertgfup.bkt.clouddn.com/banner4.png'
+        'http://pzertgfup.bkt.clouddn.com/banner1.jpg',
+        'http://pzertgfup.bkt.clouddn.com/banner2.jpg',
+        'http://pzertgfup.bkt.clouddn.com/banner3.jpg'
       ],
       swiperOption: {
         pagination: {
           el: '.swiper-pagination'
         },
-        autoplay: true,
-        speed: 1000
+        autoplay: {
+          stopOnLastSlide: false
+        },
+        speed: 1000,
+        effect: 'coverflow'
         // some swiper options...
       }
     }
@@ -48,3 +52,10 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.pic {
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+</style>
