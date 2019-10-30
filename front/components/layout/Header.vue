@@ -1,74 +1,89 @@
 <template>
   <div class="container">
     <div class="nav">
-      <div class="list">
-        <div class="item">首页</div>
-        <div class="item">关于我们</div>
-        <div class="item">特色</div>
-        <div class="item">课程</div>
-        <div class="item">员工</div>
-      </div>
-      <div class="list_logo">
-        <div class="item">
-          <img 
-            class="logo" 
-            src="@/assets/image/logo.png">
-        </div>
+      <div class="logo">
+        <img 
+          src="@/assets/image/logo2.png" 
+          alt="">
       </div>
       <div class="list">
-        <div class="item">社区</div>
-        <div class="item">招生部</div>
-        <div class="item">联系我们</div>
-        <div class="item">新闻</div>
+        <div 
+          v-for="item in navList" 
+          :key="item.index" 
+          :class="{'active':item.active}"
+          class="item"
+          @click="onChangeNav(item.index)">{{ item.name }}</div>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      navList: [
+        { index: 0, name: '业务范围', active: true },
+        { index: 1, name: '项目案例', active: false },
+        { index: 2, name: '关于我们', active: false },
+        { index: 3, name: '咨询中心', active: false },
+        { index: 4, name: '联系我们', active: false }
+      ]
+    }
+  },
+  methods: {
+    onChangeNav(index) {
+      this.navList.forEach(item => {
+        item.active = false
+      })
+      this.navList[index].active = true
+    }
+  }
+}
 </script>
 <style lang="less" scoped>
 .container {
-  position: absolute;
-  top: 90px;
-  height: 50px;
+  position: fixed;
+  top: 0px;
+  height: 86px;
   width: 100%;
   .nav {
     margin: 0 auto;
     width: 90%;
-    height: 50px;
+    height: 86;
     display: flex;
-    justify-content: center;
-    background-image: url(~assets/image/nav_back.png);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 100% 100%;
+    justify-content: space-around;
+    .logo {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+    }
     .list {
       flex: 1;
       font-size: 0;
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-end;
       align-items: center;
       .item {
         display: flex;
         align-items: center;
-        font-size: 18px;
-        color: #dcbb71;
-        height: 50px;
+        font-size: 16px;
+        color: #666;
+        height: 86px;
         padding: 0 20px;
         transition: all 0.5s ease;
         position: relative;
+        box-sizing: border-box;
         &:hover {
-          color: #fff;
+          color: #00aa00;
         }
         &::after {
-          background: #fff;
+          background: #00aa00;
           opacity: 0;
           position: absolute;
           content: '';
           left: 0;
           right: 0;
-          bottom: 0;
+          bottom: 10px;
           width: 100%;
           height: 2px;
           transform: scaleX(0);
@@ -78,6 +93,9 @@ export default {}
           opacity: 1;
           transform: scaleX(1);
         }
+      }
+      .active {
+        color: #00aa00;
       }
     }
     .list_logo {

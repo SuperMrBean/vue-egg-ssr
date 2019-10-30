@@ -29,17 +29,19 @@ module.exports = {
   ** Global CSS
   */
   css: [
-    '@/assets/css/normalize.css' // 样式初始化
+    '@/assets/css/normalize.css', // 样式初始化
+    'swiper/dist/css/swiper.css' //swiper插件的样式
   ],
 
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
-    {
-      src: '@/assets/js/flexible.js',
-      ssr: false
-    }
+    // {
+    //   src: '@/assets/js/flexible.js',
+    //   ssr: false
+    // }
+    { src: '@/plugins/vue-awesome-swiper', ssr: false }
   ],
 
   /*
@@ -86,10 +88,10 @@ module.exports = {
     postcss: {
       plugins: {
         // px to rem
-        'postcss-pxtorem': {
-          rootValue: 160,
-          propList: ['*']
-        }
+        // 'postcss-pxtorem': {
+        //   rootValue: 160,
+        //   propList: ['*']
+        // }
       },
       preset: {
         autoprefixer: {

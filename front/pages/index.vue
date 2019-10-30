@@ -1,10 +1,15 @@
 <template>
-  <div class="a">a</div>
+  <div class="a">
+    <Swiper/>
+  </div>
 </template>
 
 <script>
+import Swiper from '@/components/swiper'
 export default {
-  components: {}
+  components: {
+    Swiper
+  }
 }
 </script>
 
