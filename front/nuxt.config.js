@@ -7,7 +7,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: '聚渌创环保咨询',
     meta: [
       { charset: 'utf-8' },
       {
@@ -16,8 +16,8 @@ module.exports = {
           'width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no'
       },
       { hid: 'description', name: 'description', content: pkg.description }
-    ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    ]
+    // link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
 
   /*
@@ -30,6 +30,7 @@ module.exports = {
   */
   css: [
     '@/assets/css/normalize.css', // 样式初始化
+    '@/assets/css/animate.css', // 动画样式
     'swiper/dist/css/swiper.css' //swiper插件的样式
   ],
 
@@ -41,7 +42,8 @@ module.exports = {
     //   src: '@/assets/js/flexible.js',
     //   ssr: false
     // }
-    { src: '@/plugins/vue-awesome-swiper', ssr: false }
+    { src: '@/plugins/vue-awesome-swiper', ssr: false },
+    { src: '@/plugins/wow', ssr: false }
   ],
 
   /*

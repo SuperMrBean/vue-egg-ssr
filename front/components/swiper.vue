@@ -18,19 +18,21 @@
 
 <script>
 export default {
+  props: {
+    banners: {
+      required: true,
+      type: Array
+    }
+  },
   data() {
     return {
-      banners: [
-        'http://pzertgfup.bkt.clouddn.com/banner1.jpg',
-        'http://pzertgfup.bkt.clouddn.com/banner2.jpg',
-        'http://pzertgfup.bkt.clouddn.com/banner3.jpg'
-      ],
       swiperOption: {
         pagination: {
           el: '.swiper-pagination'
         },
+        loop: true,
         autoplay: {
-          stopOnLastSlide: false
+          disableOnInteraction: false
         },
         speed: 1000,
         effect: 'coverflow'
@@ -38,18 +40,7 @@ export default {
       }
     }
   },
-  mounted() {
-    // setTimeout(() => {
-    //   this.banners.push('/4.jpg')
-    //   console.log('banners update')
-    // }, 3000)
-    // console.log(
-    //   'This is current swiper instance object',
-    //   this.mySwiper,
-    //   'It will slideTo banners 3'
-    // )
-    this.mySwiper.slideTo(0)
-  }
+  mounted() {}
 }
 </script>
 <style lang="less" scoped>
@@ -57,5 +48,6 @@ export default {
   height: 400px;
   width: 100%;
   object-fit: cover;
+  vertical-align: top;
 }
 </style>

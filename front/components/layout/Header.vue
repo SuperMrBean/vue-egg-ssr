@@ -47,6 +47,7 @@ export default {
   height: 86px;
   width: 100%;
   z-index: 999;
+  background-color: #fff;
   .nav {
     margin: 0 auto;
     width: 90%;
