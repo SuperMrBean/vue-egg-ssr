@@ -7,11 +7,10 @@
       class="pic">
     <div class="text">
       <div class="text__top">
-        <span class="text__top--ch">{{ detail.chTitle }}</span>
-        <span class="text__top--en">{{ detail.enTitle }}</span>
+        <span class="text__top--title">{{ detail.title }}</span>
       </div>
       <div class="text__bottom">
-        <span class="text__bottom--ch">{{ detail.class }}</span>
+        <span class="text__bottom--name">{{ detail.name }}</span>
       </div>
     </div>
   </div>
@@ -48,8 +47,8 @@ export default {
   .text {
     .text__top {
       padding: 10px 0;
-      border-bottom: 1px solid #999;
-      .text__top--ch {
+      text-align: center;
+      .text__top--title {
         font-size: 18px;
         color: #333;
       }
@@ -59,8 +58,8 @@ export default {
       }
     }
     .text__bottom {
-      padding: 10px 0;
-      &--ch {
+      text-align: center;
+      &--name {
         font-size: 12px;
         color: #999;
       }

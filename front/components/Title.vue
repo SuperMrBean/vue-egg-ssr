@@ -23,7 +23,7 @@ export default {
 <style lang="less" scoped>
 .title {
   width: 100%;
-  padding: 20px 0;
+  padding: 60px 0;
   .title--ch {
     font-size: 24px;
     color: #333;
