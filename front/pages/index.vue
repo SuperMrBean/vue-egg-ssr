@@ -5,13 +5,10 @@
       <div class="service">
         <Title :title="service.title"/>
         <div class="list">
-          <ServiceListItem 
-            v-for="(item,index) in service.list" 
-            :key="index" 
-            :detail="item"/>
+          <ServiceListItem v-for="(item,index) in service.list" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
-      <div class="principle">
+      <div class="principle wow fadeIn">
         <div class="line1">符合国家和国际法规与标准，高水平的质量控制</div>
         <div class="line2">Meet national and international regulations and standards , high level of quality control</div>
         <div class="line3">一向以诚信为本，这是公司的基本传统，也是完美最可贵的财产之一。访问公司治理部分，这是您了解公司治理实践的可靠信息来源，利用这些实践
@@ -45,13 +42,10 @@
       <div class="project">
         <Title :title="project.title"/>
         <div class="list">
-          <ProjectListItem 
-            v-for="(item,index) in project.list" 
-            :key="index" 
-            :detail="item"/>
+          <ProjectListItem v-for="(item,index) in project.list" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
-      <div class="principle">
+      <div class="principle wow fadeIn">
         <div class="line1">关于我们</div>
         <div class="line2">ABOUT US</div>
         <div class="line3">广州市聚渌创环保咨询有限公司是一家集废气处理、粉尘治理、废水处理、噪音治理工程设备的研发、生产、安装、售后服务为
@@ -59,14 +53,11 @@
         可针对客户的不同需求，设计出让客户满意的环境治理方案，至今已为数百家企业解决了环保污染问题。</div>
         <div class="about">MORE</div>
       </div>
-      <img class="ad" src="@/assets/image/ad.png" alt="">
+      <img class="ad wow fadeInUp" src="@/assets/image/ad.png" alt="">
       <div class="consult">
         <Title :title="consult.title"/>
         <div class="list">
-          <ProjectListItem 
-            v-for="(item,index) in project.list" 
-            :key="index" 
-            :detail="item"/>
+          <ConsultListItem v-for="(item,index) in consult.list" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
     </div>
@@ -78,12 +69,14 @@ import Swiper from '@/components/Swiper'
 import Title from '@/components/Title'
 import ServiceListItem from '@/components/ServiceListItem'
 import ProjectListItem from '@/components/ProjectListItem'
+import ConsultListItem from '@/components/ConsultListItem'
 export default {
   components: {
     Swiper,
     Title,
     ServiceListItem,
-    ProjectListItem
+    ProjectListItem,
+    ConsultListItem
   },
   data() {
     return {
@@ -196,7 +189,30 @@ export default {
         title: {
           ch: '咨询中心',
           en: '/Consultancy Center'
-        }
+        },
+        list: [
+          {
+            topic: '袋式除尘器与粉尘浓度有什么关系?',
+            summary:
+              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+            date: '2016-06-23',
+            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+          },
+          {
+            topic: '袋式除尘器与粉尘浓度有什么关系?',
+            summary:
+              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+            date: '2016-06-23',
+            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+          },
+          {
+            topic: '袋式除尘器与粉尘浓度有什么关系?',
+            summary:
+              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+            date: '2016-06-23',
+            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+          }
+        ]
       }
     }
   }

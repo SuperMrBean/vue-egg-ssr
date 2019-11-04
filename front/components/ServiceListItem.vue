@@ -1,6 +1,6 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
-  <div class="wrap wow fadeInUp">
+  <div :class="{'fadeInLeft':index%3 === 0,'fadeIn':index%3 === 1,'fadeInRight':index%3 === 2}" class="wrap wow">
     <img 
       :src="detail.imgSrc" 
       alt=""
@@ -23,6 +23,11 @@ export default {
     detail: {
       required: true,
       type: Object
+    },
+    index: {
+      required: false,
+      type: Number,
+      default: 0
     }
   },
   data() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container wow fadeInDown">
     <div class="nav">
       <div class="logo">
         <img 
