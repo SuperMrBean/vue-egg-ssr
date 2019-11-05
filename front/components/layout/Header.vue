@@ -1,18 +1,24 @@
 <template>
-  <div class="container wow fadeInDown">
+  <div class="container">
     <div class="nav">
       <div class="logo">
         <img 
           src="@/assets/image/logo2.png" 
           alt="">
       </div>
-      <div class="list">
+      <div v-if="$route.path === '/'" class="list">
         <div 
-          v-for="item in navList" 
+          v-for="item in navList"
           :key="item.index" 
           :class="{'active':item.active}"
           class="item"
-          @click="onChangeNav(item.index)">{{ item.name }}</div>
+          @click="onChangeNav(item.index,item.name)">{{ item.name }}
+        </div>
+      </div>
+      <div v-if="$route.path !== '/'" class="list">
+        <nuxt-link class="item" to="/">
+          返回首页
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -30,12 +36,16 @@ export default {
       ]
     }
   },
+  mounted() {},
   methods: {
-    onChangeNav(index) {
+    onChangeNav(index, name) {
       this.navList.forEach(item => {
         item.active = false
       })
       this.navList[index].active = true
+      document
+        .getElementById(name)
+        .scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 }
@@ -47,7 +57,7 @@ export default {
   height: 86px;
   width: 100%;
   z-index: 999;
-  background-color: #fff;
+  background-color: #f2f2f2;
   .nav {
     margin: 0 auto;
     width: 90%;
@@ -75,6 +85,8 @@ export default {
         transition: all 0.5s ease;
         position: relative;
         box-sizing: border-box;
+        text-decoration: none;
+        cursor: pointer;
         &:hover {
           color: #00aa00;
         }

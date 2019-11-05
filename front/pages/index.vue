@@ -45,7 +45,7 @@
           <ProjectListItem v-for="(item,index) in project.list" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
-      <div class="principle wow fadeIn">
+      <div id="关于我们" class="principle wow fadeIn">
         <div class="line1">关于我们</div>
         <div class="line2">ABOUT US</div>
         <div class="line3">广州市聚渌创环保咨询有限公司是一家集废气处理、粉尘治理、废水处理、噪音治理工程设备的研发、生产、安装、售后服务为

@@ -1,8 +1,9 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
-  <div class="title">
+  <div :id="title.ch" class="title">
     <span class="title--ch">{{ title.ch }}</span>
     <span class="title--en">{{ title.en }}</span>
+    <nuxt-link class="title--all" to="/list">查看全部></nuxt-link>
   </div>
 </template>
 
@@ -17,13 +18,16 @@ export default {
   data() {
     return {}
   },
-  mounted() {}
+  mounted() {},
+  methods: {
+    jumpList() {}
+  }
 }
 </script>
 <style lang="less" scoped>
 .title {
   width: 100%;
-  padding: 50px 0;
+  padding: 90px 0 50px 0;
   .title--ch {
     font-size: 24px;
     color: #333;
@@ -32,6 +36,14 @@ export default {
   .title--en {
     font-size: 12px;
     color: #999;
+  }
+  .title--all {
+    cursor: pointer;
+    font-size: 14px;
+    color: @main;
+    float: right;
+    line-height: 2;
+    text-decoration: none;
   }
 }
 </style>

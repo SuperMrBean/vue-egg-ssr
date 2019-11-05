@@ -1,5 +1,5 @@
 <template>
-  <div class="footer wow fadeInUp">
+  <div id="联系我们" class="footer wow fadeInUp">
     <div class="top">
       <div class="item">
         <div class="line small">联系我们/CONTACT</div>

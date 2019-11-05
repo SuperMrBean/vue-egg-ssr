@@ -31,7 +31,8 @@ module.exports = {
   css: [
     '@/assets/css/normalize.css', // 样式初始化
     '@/assets/css/animate.css', // 动画样式
-    'swiper/dist/css/swiper.css' //swiper插件的样式
+    'swiper/dist/css/swiper.css', //swiper插件的样式
+    'element-ui/lib/theme-chalk/index.css' // element-ui css
   ],
 
   /*
@@ -43,7 +44,8 @@ module.exports = {
     //   ssr: false
     // }
     { src: '@/plugins/vue-awesome-swiper', ssr: false },
-    { src: '@/plugins/wow', ssr: false }
+    { src: '@/plugins/wow', ssr: false },
+    { src: '@/plugins/element-ui', ssr: false }
   ],
 
   /*

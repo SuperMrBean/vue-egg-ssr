@@ -28,9 +28,7 @@ export default {
   data() {
     return {}
   },
-  mounted() {
-    console.log(this.index)
-  }
+  mounted() {}
 }
 </script>
 <style lang="less" scoped>
