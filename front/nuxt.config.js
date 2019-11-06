@@ -26,6 +26,13 @@ module.exports = {
   loading: { color: '#fff' },
 
   /*
+  **全局禁用所有链接上的预取
+  */
+  router: {
+    prefetchLinks: false
+  },
+
+  /*
   ** Global CSS
   */
   css: [

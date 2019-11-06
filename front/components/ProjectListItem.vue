@@ -10,7 +10,7 @@
         <span class="text__top--title">{{ detail.title }}</span>
       </div>
       <div class="text__bottom">
-        <span class="text__bottom--name">{{ detail.name }}</span>
+        <span class="text__bottom--name">{{ detail.summary }}</span>
       </div>
     </div>
   </div>

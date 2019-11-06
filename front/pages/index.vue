@@ -3,9 +3,12 @@
     <Swiper :banners="banners"/>
     <div class="main">
       <div class="service">
-        <Title :title="service.title"/>
+        <Title :title="{
+          ch: '业务范围',
+          en: '/Service'
+        }"/>
         <div class="list">
-          <ServiceListItem v-for="(item,index) in service.list" :key="index" :detail="item" :index="index"/>
+          <ServiceListItem v-for="(item,index) in serviceList" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
       <div class="principle wow fadeIn">
@@ -40,9 +43,12 @@
         </div>
       </div>
       <div class="project">
-        <Title :title="project.title"/>
+        <Title :title=" {
+          ch: '项目案例',
+          en: '/Business Case'
+        }"/>
         <div class="list">
-          <ProjectListItem v-for="(item,index) in project.list" :key="index" :detail="item" :index="index"/>
+          <ProjectListItem v-for="(item,index) in projectList" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
       <div id="关于我们" class="principle wow fadeIn">
@@ -55,9 +61,12 @@
       </div>
       <img class="ad wow fadeInUp" src="@/assets/image/ad.png" alt="">
       <div class="consult">
-        <Title :title="consult.title"/>
+        <Title :title="{
+          ch: '咨询中心',
+          en: '/Consultancy Center'
+        }"/>
         <div class="list">
-          <ConsultListItem v-for="(item,index) in consult.list" :key="index" :detail="item" :index="index"/>
+          <ConsultListItem v-for="(item,index) in consultList" :key="index" :detail="item" :index="index"/>
         </div>
       </div>
     </div>
@@ -85,135 +94,87 @@ export default {
         'http://pzertgfup.bkt.clouddn.com/banner2.jpg',
         'http://pzertgfup.bkt.clouddn.com/banner3.jpg'
       ],
-      service: {
-        title: {
-          ch: '业务范围',
-          en: '/Service'
+      serviceList: [
+        {
+          id: 1,
+          title: '环保验收监测报告',
+          date: '2019-09-09',
+          summary: '废水、废气、噪音处理',
+          class: 'service',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
         },
-        list: [
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          },
-          {
-            chTitle: '环保验收监测报告',
-            enTitle: 'Acceptance Report',
-            class: '废水、废气、噪音处理',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-          }
-        ]
-      },
-      project: {
-        title: {
-          ch: '项目案例',
-          en: '/Business Case'
+        {
+          id: 2,
+          title: '环保验收监测报告',
+          date: '2019-09-09',
+          summary: '废水、废气、噪音处理',
+          class: 'service',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
         },
-        list: [
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          },
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          },
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          },
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          },
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          },
-          {
-            title: '可行性研究报告',
-            name: '聚渌创公司的项目',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-          }
-        ]
-      },
-      consult: {
-        title: {
-          ch: '咨询中心',
-          en: '/Consultancy Center'
+        {
+          id: 3,
+          title: '环保验收监测报告',
+          date: '2019-09-09',
+          summary: '废水、废气、噪音处理',
+          class: 'service',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
+        }
+      ],
+      projectList: [
+        {
+          id: 4,
+          title: '可行性研究报告',
+          date: '2019-09-09',
+          summary: '聚渌创环保咨询有限公司',
+          class: 'project',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
         },
-        list: [
-          {
-            topic: '袋式除尘器与粉尘浓度有什么关系?',
-            summary:
-              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-            date: '2016-06-23',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-          },
-          {
-            topic: '袋式除尘器与粉尘浓度有什么关系?',
-            summary:
-              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-            date: '2016-06-23',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-          },
-          {
-            topic: '袋式除尘器与粉尘浓度有什么关系?',
-            summary:
-              '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-            date: '2016-06-23',
-            imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-          }
-        ]
-      }
+        {
+          id: 5,
+          title: '可行性研究报告',
+          date: '2019-09-09',
+          summary: '聚渌创环保咨询有限公司',
+          class: 'project',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
+        },
+        {
+          id: 6,
+          title: '可行性研究报告',
+          date: '2019-09-09',
+          summary: '聚渌创环保咨询有限公司',
+          class: 'project',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
+        }
+      ],
+      consultList: [
+        {
+          id: 6,
+          title: '袋式除尘器与粉尘浓度有什么关系?',
+          date: '2019-09-09',
+          summary:
+            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+          class: 'consult',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+        },
+        {
+          id: 6,
+          title: '袋式除尘器与粉尘浓度有什么关系?',
+          date: '2019-09-09',
+          summary:
+            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+          class: 'consult',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+        },
+        {
+          id: 6,
+          title: '袋式除尘器与粉尘浓度有什么关系?',
+          date: '2019-09-09',
+          summary:
+            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
+          class: 'consult',
+          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
+        }
+      ]
     }
   }
 }

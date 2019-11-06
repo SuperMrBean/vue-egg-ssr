@@ -1,17 +1,16 @@
 <!-- You can custom the "mySwiper" name used to find the swiper instance in current component -->
 <template>
-  <div :class="{'fadeInLeft':index%3 === 0,'fadeIn':index%3 === 1,'fadeInRight':index%3 === 2}" class="wrap wow">
+  <div :class="{'fadeInLeft':index%3 === 0,'fadeIn':index%3 === 1,'fadeInRight':index%3 === 2}" class="wrap wow" @click="onClick(detail)">
     <img 
       :src="detail.imgSrc" 
       alt=""
       class="pic">
     <div class="text">
       <div class="text__top">
-        <span class="text__top--ch">{{ detail.chTitle }}</span>
-        <span class="text__top--en">{{ detail.enTitle }}</span>
+        <span class="text__top--ch">{{ detail.title }}</span>
       </div>
       <div class="text__bottom">
-        <span class="text__bottom--ch">{{ detail.class }}</span>
+        <span class="text__bottom--ch">{{ detail.summary }}</span>
       </div>
     </div>
   </div>
@@ -33,7 +32,15 @@ export default {
   data() {
     return {}
   },
-  mounted() {}
+  mounted() {},
+  methods: {
+    onClick(detail) {
+      this.$router.push({
+        name: 'article-id',
+        query: { id: detail.id, class: detail.class }
+      })
+    }
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -57,10 +64,6 @@ export default {
       .text__top--ch {
         font-size: 18px;
         color: #333;
-      }
-      .text__top--en {
-        font-size: 12px;
-        color: #999;
       }
     }
     .text__bottom {

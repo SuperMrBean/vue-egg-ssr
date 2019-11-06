@@ -5,7 +5,7 @@
       <img :src="detail.imgSrc" class="pic">
     </div>
     <div class="right">
-      <div class="topic">{{ detail.topic }}</div>
+      <div class="topic">{{ detail.title }}</div>
       <div class="date">{{ detail.date }}</div>
       <div class="summary">{{ detail.summary }}</div>
     </div>
