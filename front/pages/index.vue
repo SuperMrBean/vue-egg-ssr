@@ -79,6 +79,7 @@ import Title from '@/components/Title'
 import ServiceListItem from '@/components/ServiceListItem'
 import ProjectListItem from '@/components/ProjectListItem'
 import ConsultListItem from '@/components/ConsultListItem'
+import { getBanner } from '@/utils/api'
 export default {
   components: {
     Swiper,
@@ -176,6 +177,9 @@ export default {
         }
       ]
     }
+  },
+  mounted() {
+    getBanner()
   }
 }
 </script>

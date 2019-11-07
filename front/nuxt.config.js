@@ -62,15 +62,28 @@ module.exports = {
     // Doc: https://github.com/nuxt-community/axios-module#usage
     '@nuxtjs/axios',
     // Doc: https://github.com/nuxt-community/style-resources-module#readme
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    // Doc: https://github.com/nuxt-community/proxy-module#readme
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    proxy: true
   },
 
+  // 设置代理
+  proxy: {
+    '/web': {
+      target: 'http://127.0.0.1:7001',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/web': '/'
+      }
+    }
+  },
   /*
   ** Global less
   */
