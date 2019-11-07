@@ -13,4 +13,7 @@ module.exports = app => {
   router.post('/api/user/login', controller.user.login); // 用户登录
   // banner图相关
   router.post('/api/banner/getList', controller.banner.getList); // 获取banner图列表
+  // web
+  // banner图
+  router.get('/web/banner/getList', controller.banner.getList); // web获取banner图列表
 };

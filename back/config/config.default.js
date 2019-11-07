@@ -29,7 +29,7 @@ module.exports = appInfo => {
 
   // session验证白名单
   config.auth = {
-    ignore: [ '/api/user/login', '/api/user/register' ]
+    ignore: [ '/api/user/login', '/api/user/register', '/web' ]
   };
 
   config.security = {
@@ -37,7 +37,7 @@ module.exports = appInfo => {
       enable: false,
       ignoreJSON: true
     },
-    domainWhiteList: [ 'http://localhost:7001' ] // 配置白名单
+    domainWhiteList: [ 'http://127.0.0.1:3000' ] // 配置白名单
   };
 
   config.cors = {
