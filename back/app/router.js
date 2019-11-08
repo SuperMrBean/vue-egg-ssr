@@ -16,4 +16,5 @@ module.exports = app => {
   // web
   // banner图
   router.get('/web/banner/getList', controller.banner.getList); // web获取banner图列表
+  router.get('/web/list/getList', controller.list.getList); // web获取首页展示列表
 };
