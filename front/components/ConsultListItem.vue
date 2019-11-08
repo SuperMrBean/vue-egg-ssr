@@ -6,7 +6,7 @@
     </div>
     <div class="right">
       <div class="topic">{{ detail.title }}</div>
-      <div class="date">{{ detail.date }}</div>
+      <div class="date">{{ new Date(detail.update_time).toLocaleString() }}</div>
       <div class="summary">{{ detail.summary }}</div>
     </div>
   </div>

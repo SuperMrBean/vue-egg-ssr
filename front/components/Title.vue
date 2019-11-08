@@ -2,8 +2,8 @@
 <template>
   <div :id="title.ch" class="title">
     <span class="title--ch">{{ title.ch }}</span>
-    <span class="title--en">{{ title.en }}</span>
-    <nuxt-link class="title--all" to="/list">查看全部></nuxt-link>
+    <span class="title--en">/{{ title.en }}</span>
+    <span class="title--all" @click="jumpList(title.en)">查看全部></span>
   </div>
 </template>
 
@@ -20,7 +20,12 @@ export default {
   },
   mounted() {},
   methods: {
-    jumpList() {}
+    jumpList(type) {
+      this.$router.push({
+        name: 'list',
+        query: { type: type.toLowerCase() }
+      })
+    }
   }
 }
 </script>

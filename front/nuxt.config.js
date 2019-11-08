@@ -52,7 +52,7 @@ module.exports = {
     // }
     { src: '@/plugins/vue-awesome-swiper', ssr: false },
     { src: '@/plugins/wow', ssr: false },
-    { src: '@/plugins/element-ui', ssr: false }
+    { src: '@/plugins/element-ui', ssr: true }
   ],
 
   /*

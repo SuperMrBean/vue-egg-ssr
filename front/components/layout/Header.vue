@@ -10,9 +10,8 @@
         <div 
           v-for="item in navList"
           :key="item.index" 
-          :class="{'active':item.active}"
           class="item"
-          @click="onChangeNav(item.index,item.name)">{{ item.name }}
+          @click="onChangeNav(item.name)">{{ item.name }}
         </div>
       </div>
       <div v-if="$route.path !== '/'" class="list">
@@ -38,11 +37,7 @@ export default {
   },
   mounted() {},
   methods: {
-    onChangeNav(index, name) {
-      this.navList.forEach(item => {
-        item.active = false
-      })
-      this.navList[index].active = true
+    onChangeNav(name) {
       document
         .getElementById(name)
         .scrollIntoView({ block: 'start', behavior: 'smooth' })
@@ -107,9 +102,6 @@ export default {
           opacity: 1;
           transform: scaleX(1);
         }
-      }
-      .active {
-        color: #00aa00;
       }
     }
     .list_logo {

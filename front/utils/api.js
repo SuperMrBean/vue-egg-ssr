@@ -1,10 +1,15 @@
-import http from '@/plugins/axios'
-function getBanner(params = {}, ...options) {
+import http from '@/plugins/http'
+function getBanner() {
   return http({
     url: 'http://127.0.0.1:7001/web/banner/getList',
-    method: 'get',
-    params,
-    options
+    method: 'get'
   })
 }
-export { getBanner }
+function getArticleList(params) {
+  return http({
+    url: 'http://127.0.0.1:7001/web/list/getList',
+    method: 'get',
+    params
+  })
+}
+export { getBanner, getArticleList }

@@ -18,13 +18,14 @@
 import ListItem from '@/components/ListItem.vue'
 export default {
   components: { ListItem },
+  asyncData({ query }) {},
   data() {
     return {
       navList: [
-        { index: 0, name: '全部', active: true },
-        { index: 1, name: '业务范围', active: false },
-        { index: 2, name: '项目案例', active: false },
-        { index: 3, name: '咨询中心', active: false }
+        { index: 0, name: '全部', type: 'all', active: false },
+        { index: 1, name: '业务范围', type: 'service', active: false },
+        { index: 2, name: '项目案例', type: 'project', active: false },
+        { index: 3, name: '咨询中心', type: 'consult', active: false }
       ],
       list: [
         {
@@ -58,6 +59,16 @@ export default {
           imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
         }
       ]
+    }
+  },
+  mounted() {
+    if (this.$route.query.type) {
+      let index = this.navList.findIndex(item => {
+        return item.type === this.$route.query.type
+      })
+      this.navList[index].active = true
+    } else {
+      this.navList[0].active = true
     }
   },
   methods: {

@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     titleCh(value) {
-      switch (this.$route.query.class) {
+      switch (this.$route.query.type) {
         case 'service':
           return '业务范围'
         case 'project':
@@ -35,7 +35,7 @@ export default {
       }
     },
     titleEn(value) {
-      switch (this.$route.query.class) {
+      switch (this.$route.query.type) {
         case 'service':
           return '/Service'
         case 'project':

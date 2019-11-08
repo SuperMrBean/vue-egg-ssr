@@ -5,7 +5,7 @@
       <div class="service">
         <Title :title="{
           ch: '业务范围',
-          en: '/Service'
+          en: 'Service'
         }"/>
         <div class="list">
           <ServiceListItem v-for="(item,index) in serviceList" :key="index" :detail="item" :index="index"/>
@@ -45,7 +45,7 @@
       <div class="project">
         <Title :title=" {
           ch: '项目案例',
-          en: '/Business Case'
+          en: 'Project'
         }"/>
         <div class="list">
           <ProjectListItem v-for="(item,index) in projectList" :key="index" :detail="item" :index="index"/>
@@ -63,7 +63,7 @@
       <div class="consult">
         <Title :title="{
           ch: '咨询中心',
-          en: '/Consultancy Center'
+          en: 'Consult'
         }"/>
         <div class="list">
           <ConsultListItem v-for="(item,index) in consultList" :key="index" :detail="item" :index="index"/>
@@ -79,7 +79,7 @@ import Title from '@/components/Title'
 import ServiceListItem from '@/components/ServiceListItem'
 import ProjectListItem from '@/components/ProjectListItem'
 import ConsultListItem from '@/components/ConsultListItem'
-import { getBanner } from '@/utils/api'
+import { getBanner, getArticleList } from '@/utils/api'
 export default {
   components: {
     Swiper,
@@ -88,99 +88,22 @@ export default {
     ProjectListItem,
     ConsultListItem
   },
-  data() {
+  mounted() {},
+  async asyncData({ params }) {
+    const { data } = await getBanner()
+    const { data: serviceList } = await getArticleList({ type: 'service' })
+    const { data: projectList } = await getArticleList({ type: 'project' })
+    const { data: consultList } = await getArticleList({ type: 'consult' })
     return {
-      banners: [
-        'http://pzertgfup.bkt.clouddn.com/banner1.jpg',
-        'http://pzertgfup.bkt.clouddn.com/banner2.jpg',
-        'http://pzertgfup.bkt.clouddn.com/banner3.jpg'
-      ],
-      serviceList: [
-        {
-          id: 1,
-          title: '环保验收监测报告',
-          date: '2019-09-09',
-          summary: '废水、废气、噪音处理',
-          class: 'service',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-        },
-        {
-          id: 2,
-          title: '环保验收监测报告',
-          date: '2019-09-09',
-          summary: '废水、废气、噪音处理',
-          class: 'service',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-        },
-        {
-          id: 3,
-          title: '环保验收监测报告',
-          date: '2019-09-09',
-          summary: '废水、废气、噪音处理',
-          class: 'service',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/list_item.png'
-        }
-      ],
-      projectList: [
-        {
-          id: 4,
-          title: '可行性研究报告',
-          date: '2019-09-09',
-          summary: '聚渌创环保咨询有限公司',
-          class: 'project',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-        },
-        {
-          id: 5,
-          title: '可行性研究报告',
-          date: '2019-09-09',
-          summary: '聚渌创环保咨询有限公司',
-          class: 'project',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-        },
-        {
-          id: 6,
-          title: '可行性研究报告',
-          date: '2019-09-09',
-          summary: '聚渌创环保咨询有限公司',
-          class: 'project',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/project_item.png'
-        }
-      ],
-      consultList: [
-        {
-          id: 6,
-          title: '袋式除尘器与粉尘浓度有什么关系?',
-          date: '2019-09-09',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-          class: 'consult',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          id: 6,
-          title: '袋式除尘器与粉尘浓度有什么关系?',
-          date: '2019-09-09',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-          class: 'consult',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          id: 6,
-          title: '袋式除尘器与粉尘浓度有什么关系?',
-          date: '2019-09-09',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放...',
-          class: 'consult',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        }
-      ]
+      banners: data.map(item => {
+        return item.src
+      }),
+      serviceList,
+      projectList,
+      consultList
     }
   },
-  mounted() {
-    getBanner()
-  }
+  methods: {}
 }
 </script>
 
