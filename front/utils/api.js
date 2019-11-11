@@ -12,4 +12,12 @@ function getArticleList(params) {
     params
   })
 }
-export { getBanner, getArticleList }
+function getArticle(params) {
+  return http({
+    url: 'http://127.0.0.1:7001/web/list/getArticle',
+    method: 'get',
+    params
+  })
+}
+
+export { getBanner, getArticleList, getArticle }

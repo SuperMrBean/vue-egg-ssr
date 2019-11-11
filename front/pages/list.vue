@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="top" class="container">
     <div class="title">全部文章</div>
     <div class="list">
       <div v-for="(item,index) in navList" :key="index" :class="{'active':item.active}" class="item" @click="onSelect(item.index)">{{ item.name }}</div>
@@ -7,18 +7,30 @@
     <div class="main">
       <ListItem v-for="(item,index) in list" :key="index" :detail="item"/>
       <div class="pagination">
-        <el-pagination :total="1000" background layout="prev, pager, next"/>
+        <el-pagination :total="total" :page-size="5" background layout="prev, pager, next" @current-change="onChangePage"/>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import ListItem from '@/components/ListItem.vue'
+import { getArticleList } from '@/utils/api'
 export default {
   components: { ListItem },
-  asyncData({ query }) {},
+  async asyncData({ query }) {
+    const {
+      data: { list, total }
+    } = await getArticleList({
+      type: query.type,
+      size: 5,
+      index: 1
+    })
+    return {
+      list,
+      total
+    }
+  },
   data() {
     return {
       navList: [
@@ -27,38 +39,7 @@ export default {
         { index: 2, name: '项目案例', type: 'project', active: false },
         { index: 3, name: '咨询中心', type: 'consult', active: false }
       ],
-      list: [
-        {
-          title: '袋式除尘器与粉尘浓度有什么关系？',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          title: '袋式除尘器与粉尘浓度有什么关系？',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          title: '袋式除尘器与粉尘浓度有什么关系？',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          title: '袋式除尘器与粉尘浓度有什么关系？',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        },
-        {
-          title: '袋式除尘器与粉尘浓度有什么关系？',
-          summary:
-            '袋式除尘器净化效率高，处理气体能力大，性能稳定，操作方便、滤袋寿命长、维修工作量小等优点。而且从结构上和脉冲阀上进行改革，解决了露天安放',
-          imgSrc: 'http://pzertgfup.bkt.clouddn.com/news1.png'
-        }
-      ]
+      type: null
     }
   },
   mounted() {
@@ -67,16 +48,37 @@ export default {
         return item.type === this.$route.query.type
       })
       this.navList[index].active = true
+      this.type = this.navList[index].type
     } else {
       this.navList[0].active = true
+      this.type = 'all'
     }
   },
   methods: {
-    onSelect(index) {
+    async onSelect(index) {
       this.navList.forEach(item => {
         item.active = false
       })
       this.navList[index].active = true
+      this.type = this.navList[index].type
+      this.getList(1)
+    },
+    onChangePage(index) {
+      this.getList(index)
+    },
+    async getList(index) {
+      const {
+        data: { list, total }
+      } = await getArticleList({
+        type: this.type,
+        size: 5,
+        index
+      })
+      this.list = list
+      this.total = total
+      document
+        .getElementById('top')
+        .scrollIntoView({ block: 'start', behavior: 'smooth' })
     }
   }
 }

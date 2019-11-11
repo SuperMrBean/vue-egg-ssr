@@ -6,6 +6,7 @@
     </div>
     <div class="right">
       <div class="title">{{ detail.title }}</div>
+      <div class="date">{{ new Date(detail.update_time).toLocaleString() }}</div>
       <div class="summary">{{ detail.summary }}</div>
     </div>
   </div>
@@ -48,12 +49,17 @@ export default {
     .title {
       font-size: 18px;
       color: #333;
-      margin-top: 20px;
+      margin-top: 10px;
+    }
+    .date {
+      font-size: 14px;
+      color: #999;
+      margin-top: 10px;
     }
     .summary {
       display: block; /* Fallback for non-webkit */
       display: -webkit-box;
-      margin-top: 20px;
+      margin-top: 15px;
       font-size: 14px;
       color: #999;
       line-height: 2;

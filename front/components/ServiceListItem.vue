@@ -37,7 +37,7 @@ export default {
     onClick(detail) {
       this.$router.push({
         name: 'article-id',
-        query: { id: detail.id, class: detail.class }
+        query: { id: detail.id, type: detail.type }
       })
     }
   }

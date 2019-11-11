@@ -91,9 +91,27 @@ export default {
   mounted() {},
   async asyncData({ params }) {
     const { data } = await getBanner()
-    const { data: serviceList } = await getArticleList({ type: 'service' })
-    const { data: projectList } = await getArticleList({ type: 'project' })
-    const { data: consultList } = await getArticleList({ type: 'consult' })
+    const {
+      data: { list: serviceList }
+    } = await getArticleList({
+      type: 'service',
+      size: 6,
+      index: 1
+    })
+    const {
+      data: { list: projectList }
+    } = await getArticleList({
+      type: 'project',
+      size: 6,
+      index: 1
+    })
+    const {
+      data: { list: consultList }
+    } = await getArticleList({
+      type: 'consult',
+      size: 6,
+      index: 1
+    })
     return {
       banners: data.map(item => {
         return item.src

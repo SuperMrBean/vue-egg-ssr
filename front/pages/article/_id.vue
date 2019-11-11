@@ -5,21 +5,25 @@
       <span class="topic--en">{{ titleEn }}</span>
     </div>
     <div class="main">
-      <div class="title">广州聚渌创环保咨询有限公司可行性研究报告</div>
-      <div class="date">2017-04-29</div>
+      <div class="title">{{ article.title }}</div>
+      <div class="date">{{ new Date(article.update_time).toLocaleString() }}</div>
       <div class="article">
-        <span>我是一篇文章</span>
-        <img src="@/assets/image/ad.png" alt="">
+        <span>{{ article.article }}</span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { getArticle } from '@/utils/api'
 export default {
   components: {},
-  data() {
-    return {}
+  async asyncData({ query }) {
+    const { data } = await getArticle({ id: query.id })
+
+    return {
+      article: data
+    }
   },
   computed: {
     titleCh(value) {
@@ -47,9 +51,7 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log(this.$route.query)
-  },
+  mounted() {},
   methods: {}
 }
 </script>
@@ -73,8 +75,9 @@ export default {
     margin: 60px 0;
     .title {
       text-align: center;
-      font-size: 22px;
+      font-size: 24px;
       color: #333;
+      font-weight: bold;
     }
     .date {
       text-align: center;
@@ -85,6 +88,7 @@ export default {
       border-bottom: 1px solid #eee;
     }
     .article {
+      margin-top: 40px;
       text-align: center;
     }
   }
