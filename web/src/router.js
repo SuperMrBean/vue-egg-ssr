@@ -2,6 +2,7 @@
 import Data from './pages/home/data'
 import B from './pages/home/b'
 import C from './pages/home/b'
+
 const routeConfig = [
   {
     name:"首页",
