@@ -1,66 +1,26 @@
-import React from 'react';
+import React,{ Suspense, lazy } from 'react';
 import './App.css';
 import { hot } from 'react-hot-loader/root'
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-
+import Loading from './utils/loading'
+const Home = lazy(() => import(/* webpackChunkName: "home" */'./pages/home'));
+const Err = lazy(() => import(/* webpackChunkName: "err" */'./pages/err'));
+const Login = lazy(() => import(/* webpackChunkName: "login" */'./pages/login'));
 function App() {
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-        </ul>
-
-        <hr />
+      <Suspense fallback={<Loading/>}>
         <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
-          </Route>
+          <Route path='/login' exact component={Login}/>
+          <Route path='/err' exact component={Err}/>
+          <Route path='/' component={Home}/>
         </Switch>
-      </div>
+      </Suspense>
     </Router>
-  );
-}
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
-    </div>
-  );
-}
-
-function About() {
-  return (
-    <div>
-      <h2>About</h2>
-    </div>
-  );
-}
-
-function Dashboard() {
-  return (
-    <div>
-      <h2>Dashboard</h2>
-    </div>
   );
 }
 export default process.env.NODE_ENV === "development" ? hot(App) : App
