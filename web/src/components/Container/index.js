@@ -1,8 +1,7 @@
-import React,{Component,Suspense} from 'react';
+import React,{Component} from 'react';
 import { Layout } from 'antd';
 import { Switch, Redirect,Route,withRouter } from 'react-router-dom';
 import routeConfig  from '../../router';
-import Loading from '../../utils/loading'
 const { Content } = Layout;
 let routeMap = []
 routeConfig.forEach(item =>{
@@ -38,12 +37,10 @@ class Container extends Component {
         marginTop:'92px',
         transition:'all .2s'
       }}>
-        <Suspense>
-          <Switch>
-            {routeMap}
-            <Redirect from="/*" to="/err"></Redirect>
-          </Switch>
-        </Suspense>
+        <Switch>
+          {routeMap}
+          <Redirect from="/*" to="/err"></Redirect>
+        </Switch>
       </Content >
     );
 }
