@@ -29,7 +29,7 @@ module.exports = {
   **全局禁用所有链接上的预取
   */
   router: {
-    base:"/", //此为根目录，如果有具体目录需求按实际情况写
+    base:"/juluchuang/", //此为根目录，如果有具体目录需求按实际情况写
     prefetchLinks: false
   },
 
