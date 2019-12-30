@@ -6,7 +6,7 @@
           src="@/assets/image/logo2.png" 
           alt="">
       </div>
-      <div v-if="$route.path === '/'" class="list">
+      <div v-show="$route.path === '/'" class="list">
         <div 
           v-for="item in navList"
           :key="item.index" 
@@ -14,7 +14,7 @@
           @click="onChangeNav(item.name)">{{ item.name }}
         </div>
       </div>
-      <div v-if="$route.path !== '/'" class="list">
+      <div v-show="$route.path !== '/'" class="list">
         <nuxt-link class="item" to="/">
           返回首页
         </nuxt-link>
